@@ -1,0 +1,40 @@
+databases:
+  - name: bloodpointbd
+    plan: free
+    databaseName: bloodpointbd
+    user: bloodpointbd
+
+services:
+  - type: web
+    plan: free
+    name: bloodpoint-core
+    runtime: python
+    buildCommand: './build.sh'
+    startCommand: 'superset run -h 0.0.0.0 -p $PORT'
+    buildFilter:
+      paths:
+        exclude:
+          - Procfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bloodpointbd
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: FLASK_APP
+        value: "superset.app:create_app()"
+      - key: SUPERSET_ENV
+        value: production
+      - key: SUPERSET_CONFIG_PATH
+        value: /opt/render/project/src/config/superset_config.py
+      - key: SUPERSET_FEATURE_EMBEDDED_SUPERSET
+        value: True
+      - key: SUPERSET_FEATURE_EMBEDDABLE_CHARTS
+        value: True
+      - key: SUPERSET_PUBLIC_ROLE_LIKE
+        value: Embedded
+      - key: SUPERSET_GUEST_ROLE_NAME
+        value: Embedded

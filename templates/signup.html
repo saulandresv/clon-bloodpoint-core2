@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Crear cuenta{% endblock %}
+{% block content %}
+	<body class='signup'>
+		<div class="background">
+				<div class="globulo">
+						<div class="globulo-base"></div>
+						<div class="protuberancia"></div>
+						<div class="protuberancia"></div>
+				</div>
+				<div class="shape"></div>
+		</div>
+		<header class="header">
+				<div class="header-content">
+						<div class="header-title">
+								BLOODPOINT
+								<i class="fas fa-heartbeat"></i>
+						</div>
+						<!-- <div class="header-subtitle">
+								Aplicación de gestión de donaciones de sangre
+						</div> -->
+				</div>
+		</header>
+		<div class="card">
+			
+		</div>
+		<form id='representante_form' class='signup' action="{% url 'signup_representante' %}" method="post" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+			{% csrf_token %}
+
+			{% if error %}
+				<div class="error-message">
+					{{ error }}
+				</div>
+			{% endif %}
+			<h3>Crear cuenta</h3>
+			<label for="rut_representante">Rut</label>
+			<input type="text" placeholder="Ej: 12.345.678-K" name="rut_representante" id="rut_representante" required>
+			<label for="nombre">Nombre</label>
+			<input type="text" placeholder="Nombre completo" name="nombre" id="nombre" required>
+			<label for="apellido">Apellido</label>
+			<input type="text" placeholder="Apellido" name="apellido" id="apellido" required>
+			<label for="email">Email</label>
+			<input type="email" placeholder="Email" name="email" id="email" required>
+			<label for="password1">Contraseña</label>
+			<input type="password" placeholder="Contraseña" id="password1" name="password1" required>
+			<label for="password2">Confirme su Contraseña</label>
+			<input type="password" placeholder="Repetir contraseña" id="password2" name="password2" required>
+			<label for="rol">Rol</label>
+			<input type="text" placeholder="Rol en organización" id="rol" name="rol" required>
+			<label for="credencial">Foto de credencial</label>
+			<input type="file" placeholder="Foto de credencial" id="credencial" name="credencial"
+					accept="image/jpg, image/jpeg, image/png">
+			<button type="submit">Crear cuenta</button>
+			<a href="{% url 'login' %}" style="text-align: center;">Ya tengo una cuenta</a>
+		</form>
+	</body>
+{% endblock %}

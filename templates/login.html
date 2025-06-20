@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Ingresar{% endblock %}
+{% block content %}
+
+<body class='login'>
+	<div class="background">
+		<div class="globulo">
+			<div class="globulo-base"></div>
+			<div class="protuberancia"></div>
+			<div class="protuberancia"></div>
+		</div>
+		<div class="shape"></div>
+	</div>
+	<header class="header">
+		<div class="header-content">
+			<div class="header-title">
+				BLOODPOINT
+				<i class="fas fa-heartbeat"></i>
+			</div>
+			<!-- <div class="header-subtitle">
+						Aplicación de gestión de donaciones de sangre
+				</div> -->
+		</div>
+	</header>
+	<form class="login" method="POST" action="{% url 'login' %}">
+		{% csrf_token %}
+		<h3>Ingresar</h3>
+
+		<label for="email" style="color: white">Correo electrónico:</label>
+		<input type="email" name="email" required style='background-color: rgba(255, 255, 255, 0.07); border-radius: 3px; color: white'>
+
+		<label for="password" style="color:white">Contraseña:</label>
+		<input type="password" name="password" required style='background-color: rgba(255, 255, 255, 0.07); border-radius: 3px; color: white'>
+
+		<button type="submit">Iniciar sesión</button>
+		<a href="{% url 'signup_representante' %}">Crear una cuenta de representante</a>
+		<a href="{% url 'password_reset' %}"><i class="fas fa-key"></i>¿Olvidaste tu contraseña?</a>
+			<!-- Muestra mensajes de error si existen -->
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</form>
+
+</body>
+{% endblock %}

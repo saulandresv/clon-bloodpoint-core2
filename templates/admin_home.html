@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body class='home'>
+    {% include "componentes/navbar.html" %}
+    <div>
+        <h2>{% if request.user.is_authenticated %}
+            Bienvenido a BLOODPOINT,
+            {% if request.user.tipo_usuario == 'representante' and request.user.representante_org %}
+            {{ request.user.representante_org.nombre }}
+            {% elif request.user.tipo_usuario == 'admin' and request.user.adminbp %}
+            {{ request.user.adminbp.nombre }}
+            {% endif %}
+            ({{ request.user.tipo_usuario }})
+            {% endif %}
+        </h2>
+        <h3>Dashboard de Administración</h3>
+        <div class="row" style="margin-bottom: 2rem;">
+            <div class="col-6 graph-container">
+                <div>
+                    <h4>--</h4>
+                    <iframe width="300" height="200" seamless frameBorder="0" scrolling="no"
+                        src="https://bloodpoint-core.onrender.com/superset/explore/p/1XvG4BR7wyW/?standalone=1&height=400">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-6 graph-container">
+                <div>
+                    <h4>--</h4>
+                    <iframe width="300" height="200" seamless frameBorder="0" scrolling="no"
+                        src="https://bloodpoint-core.onrender.com/superset/explore/p/ElXqXAEGgjv/?standalone=1&height=400">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 2rem;">
+            <div class="col-6 graph-container">
+                <div>
+                    <h4>--</h4>
+                    <iframe width="430" height="300" seamless frameBorder="0" scrolling="no"
+                        src="https://bloodpoint-core.onrender.com/superset/explore/p/Z057xPm7DAp/?standalone=1&height=400">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-6 graph-container">
+                <div>
+                    <h4>--</h4>
+                    <iframe width="430" height="300" seamless frameBorder="0" scrolling="no"
+                        src="https://bloodpoint-core.onrender.com/superset/explore/p/YbK7ArMqNWj/?standalone=1&height=400">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 graph-container">
+                <div>
+                    <h4>Últimos usuarios registrados</h4>
+                    <iframe width="950" height="500" seamless frameBorder="0" scrolling="no"
+                        src="https://bloodpoint-core.onrender.com/superset/explore/p/WEVGbYnqKoN/?standalone=1&height=400">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-12 graph-container">
+                <div>
+                    <h4>Heatmap de donaciones</h4>
+                    <iframe width="950" height="500" seamless frameBorder="0" scrolling="no"
+                        src="https://bloodpoint-core.onrender.com/superset/explore/p/bAOGKQE7NvQ/?standalone=1&height=400">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+{% endblock %}
