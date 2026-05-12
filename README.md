@@ -4,23 +4,34 @@
 
 # BloodPoint API
 
-Backend REST del sistema de gestión de donaciones de sangre, desarrollado como parte del proyecto de título **BloodPoint**.
+Backend REST del sistema de gestión y promoción de donaciones de sangre.
 
 ## Stack
 
-- **Framework:** Django 4 + Django REST Framework
-- **Tareas async:** Celery + Redis
-- **Analytics:** Apache Superset
-- **Almacenamiento:** Cloudinary
-- **Deploy:** Render / Heroku (Docker)
+| Categoría | Tecnología |
+|-----------|-----------|
+| Framework | Django 5.2 + Django REST Framework |
+| Tareas async | Celery 5.5 + Redis |
+| Analytics | Apache Superset 4.1 |
+| Base de datos | PostgreSQL (psycopg2) |
+| Notificaciones push | Firebase Admin SDK |
+| Almacenamiento | Cloudinary |
+| Geolocalización | Geopy |
+| Data processing | Pandas + NumPy + PyArrow |
+| Alertas | Slack SDK |
+| Servidor | Gunicorn + Whitenoise |
+| Deploy | Docker · Render · Heroku |
 
 ## Funcionalidades
 
-- Autenticación y gestión de usuarios donantes
-- API REST para registro de donaciones
-- Notificaciones asíncronas vía Celery
-- Dashboard de analytics con Apache Superset
-- Upload de imágenes a Cloudinary
+- API REST para registro y gestión de donantes y donaciones
+- Tareas asíncronas con Celery + Redis (notificaciones, reportes)
+- Dashboard de analytics con Apache Superset integrado
+- Notificaciones push server-side vía Firebase Admin
+- Upload y gestión de imágenes con Cloudinary
+- Geolocalización de puntos de donación con Geopy
+- Alertas a Slack para eventos críticos
+- Datos de prueba con Faker
 
 ## Instalación
 
