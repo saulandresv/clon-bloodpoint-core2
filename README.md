@@ -11,27 +11,27 @@ Backend REST del sistema de gestión y promoción de donaciones de sangre.
 | Categoría | Tecnología |
 |-----------|-----------|
 | Framework | Django 5.2 + Django REST Framework |
-| Tareas async | Celery 5.5 + Redis |
+| Auth | JWT + CORS |
+| Tareas async | Celery + Redis |
 | Analytics | Apache Superset 4.1 |
-| Base de datos | PostgreSQL (psycopg2) |
+| Base de datos | PostgreSQL |
 | Notificaciones push | Firebase Admin SDK |
 | Almacenamiento | Cloudinary |
 | Geolocalización | Geopy |
-| Data processing | Pandas + NumPy + PyArrow |
-| Alertas | Slack SDK |
 | Servidor | Gunicorn + Whitenoise |
 | Deploy | Docker · Render · Heroku |
 
-## Funcionalidades
+## Mis contribuciones
 
-- API REST para registro y gestión de donantes y donaciones
-- Tareas asíncronas con Celery + Redis (notificaciones, reportes)
-- Dashboard de analytics con Apache Superset integrado
-- Notificaciones push server-side vía Firebase Admin
-- Upload y gestión de imágenes con Cloudinary
-- Geolocalización de puntos de donación con Geopy
-- Alertas a Slack para eventos críticos
-- Datos de prueba con Faker
+- **Auth completa:** login con token JWT, soporte CORS, headers Authorization, login por email (representantes) y RUT (donantes)
+- **Perfiles:** endpoint `/profile/` para ver y editar datos del donante (email, RUT)
+- **Donaciones:** registro de donaciones, historial por donante, registro vía QR
+- **Campañas:** crear campaña, validar campaña, listar campañas activas, solicitudes de campaña
+- **Representantes:** endpoints GET `/representantes/<id>`, generación automática de RUT único
+- **Sistema de logros:** modelos, migraciones, services, serializers y seed de achievements (`init_achievements.py`, migración de población)
+- **Chatbot:** integración del chatbot (`BPCB.json`, views)
+- **Notificaciones:** push notifications server-side vía Firebase Admin
+- **Deploy:** configuración Gunicorn en Procfile
 
 ## Instalación
 
