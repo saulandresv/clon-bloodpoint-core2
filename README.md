@@ -1,8 +1,10 @@
+> [!IMPORTANT]
+> Implementación propia del backend del proyecto de título **BloodPoint**, desarrollado en equipo en DuocUC.
+> Ver repositorio original: [Camilink/BloodPoint-core](https://github.com/Camilink/BloodPoint-core)
+
 # BloodPoint API
 
 Backend REST del sistema de gestión de donaciones de sangre, desarrollado como parte del proyecto de título **BloodPoint**.
-
-> Implementación propia del backend original → [Camilink/BloodPoint-core](https://github.com/Camilink/BloodPoint-core)
 
 ## Stack
 
@@ -33,6 +35,6 @@ python manage.py runserver
 docker-compose up
 ```
 
-## Relación con el proyecto original
+## Frontend
 
-Este repositorio es una implementación propia del backend del proyecto de título [BloodPoint](https://github.com/Camilink/BloodPoint), desarrollado en equipo en DuocUC. El frontend móvil correspondiente está en [clon-bloodpoint-app](https://github.com/saulandresv/clon-bloodpoint-app).
+App móvil correspondiente: [clon-bloodpoint-app](https://github.com/saulandresv/clon-bloodpoint-app)
